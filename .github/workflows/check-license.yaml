@@ -38,6 +38,7 @@ jobs:
 
       - name: Check License
         run: |
+          go mod vendor | grep "go get" | awk '{print $3}' | xargs -n1 go get
           go mod vendor
           which wwhrd || go install github.com/frapposelli/wwhrd@latest
           wwhrd check -f .wwhrd.yml
