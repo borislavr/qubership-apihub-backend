@@ -38,6 +38,7 @@ jobs:
 
       - name: Check License
         run: |
+          go get -t github.com/Netcracker/qubership-apihub-backend/qubership-apihub-service/service
           go mod vendor | grep "go get" | awk '{print $3}' | xargs -n1 go get
           go mod vendor
           which wwhrd || go install github.com/frapposelli/wwhrd@latest
